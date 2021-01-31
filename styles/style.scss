@@ -1,0 +1,353 @@
+//Font Import (Inter 400, 700 & Source Code Pro 400)
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Source+Code+Pro:wght@600&display=swap");
+
+@import "_variables.scss";
+
+//Mixins
+@mixin text($weight, $size, $color) {
+  font-weight: $weight;
+  font-size: $size;
+  color: $color;
+}
+
+//General properties
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Inter", "sans-serif";
+  font-size: 14px;
+  background: $bg;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.background {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  width: 100%;
+  height: 35%;
+  background: linear-gradient(to bottom, $top-bg-pattern 100%, transparent 0);
+  border-radius: 0 0 1.5rem 1.5rem;
+  z-index: 1;
+}
+
+main {
+  width: 85%;
+  margin: 1rem;
+  z-index: 1;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.main-title {
+  margin: 1rem 0 0.5rem 0;
+  color: $numbers;
+}
+
+.total-number {
+  @include text(700, 1rem, $text);
+}
+
+hr {
+  border: 0;
+  border-top: 2px solid gray;
+  height: 2px;
+  margin: 1rem 0 1rem 0;
+}
+
+.toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.dark-mode {
+  @include text(700, 1rem, $text);
+}
+
+//Toggle button styles
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 24px;
+}
+
+//Hide actual checkbox
+.switch input {
+  height: 0;
+  width: 0;
+  opacity: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: $toggle;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 20px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 4px;
+  bottom: 4px;
+  background-color: $card-bg;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-image: $toggle-gradient;
+
+  &::before {
+    transform: translateX(24px);
+    background: $dt-card-bg;
+  }
+}
+
+.slider.round {
+  border-radius: 20px;
+
+  &::before {
+    border-radius: 50%;
+  }
+}
+
+//Social media accounts grid
+.accounts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-gap: 2rem;
+  justify-content: center;
+}
+
+.big-tile {
+  text-align: center;
+  padding: 1rem;
+  border-radius: 0.3rem;
+  background-color: $card-bg;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $hover;
+  }
+}
+
+.big-tile.facebook {
+  border-top: 5px solid $facebook;
+}
+
+.big-tile.twitter {
+  border-top: 5px solid $twitter;
+}
+
+.big-tile.instagram::before {
+  content: "";
+  display: block;
+  position: relative;
+  width: calc(100% + 2rem);
+  bottom: 1rem;
+  right: 1rem;
+  border-radius: 0.3rem 0.3rem 0 0;
+  height: 5px;
+  background-image: $instagram;
+}
+
+.big-tile.youtube {
+  border-top: 5px solid $youtube;
+}
+
+.big-tile > :nth-child(3) {
+  text-transform: uppercase;
+  @include text(700, 0.8rem, $text);
+  letter-spacing: 0.4rem;
+}
+
+.account-name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sub-title {
+  margin: 1rem 0 1rem 0;
+  @include text(700, 1rem, $text);
+}
+
+.account-name > img {
+  align-self: center;
+  margin-right: 0.5rem;
+}
+
+.count {
+  @include text(700, 3.5rem, $numbers);
+}
+
+.difference {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0 1rem 0;
+}
+
+.difference.green {
+  @include text(700, 1rem, $positive-count);
+}
+
+.difference.red {
+  @include text(700, 1rem, $negative-count);
+}
+
+.difference > img {
+  align-self: center;
+  margin-right: 5px;
+}
+
+.small-title {
+  margin: 2rem 0 1rem 0;
+  @include text(700, 1.5rem, $numbers);
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-gap: 2rem;
+  justify-content: center;
+}
+
+.small-tile {
+  background-color: $card-bg;
+  border-radius: 0.3rem;
+  padding: 2rem;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $hover;
+  }
+}
+
+.stats-title {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  @include text(400, 1rem, $text);
+}
+
+.stats-title > img {
+  align-self: center;
+}
+
+.daily-stats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.small-count {
+  @include text(700, 2rem, $numbers);
+}
+
+.daily-difference {
+  display: flex;
+}
+
+.daily-difference.green {
+  @include text(700, 1rem, $positive-count);
+}
+
+.daily-difference.red {
+  @include text(700, 1rem, $negative-count);
+}
+
+.daily-difference > img {
+  align-self: center;
+  margin-right: 5px;
+}
+
+.attribution {
+  font-family: "Source Code Pro", monospace;
+  margin: 1rem;
+  text-align: center;
+}
+.attribution > a {
+  color: inherit;
+}
+
+//Dark Theme Classes
+.dt-body {
+  background: $dt-top-bg;
+}
+
+.dt-bg {
+  background: linear-gradient(to bottom, $dt-bg 100%, transparent 0);
+}
+
+.dt-tile {
+  background-color: $dt-card-bg;
+}
+
+.dt-text {
+  color: $dt-text;
+}
+
+.dt-count {
+  color: $dt-numbers;
+}
+
+.dt-numbers {
+  color: $dt-numbers;
+}
+
+.dt-hover:hover {
+  background-color: $dt-hover;
+}
+
+//Media Queries
+@media screen and (min-width: 376px) {
+  hr {
+    display: none;
+  }
+  .toggle {
+    justify-content: flex-end;
+  }
+  .toggle > p {
+    margin-right: 1rem;
+  }
+}
+
+@media screen and (min-width: 983px) and (max-width: 1322px) {
+  .accounts,
+  .stats {
+    grid-template-columns: repeat(2, minmax(260px, 1fr));
+  }
+}
+
+@media screen and (min-width: 1661px) {
+  .stats {
+    grid-template-columns: repeat(4, minmax(260px, 1fr));
+  }
+}
