@@ -1,6 +1,6 @@
 //Font Import (Inter 400, 700 & Source Code Pro 400)
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Source+Code+Pro:wght@600&display=swap");
-
+//Color Variables Import
 @import "_variables.scss";
 
 //Mixins
@@ -121,6 +121,12 @@ hr {
   border-radius: 50%;
 }
 
+input[type="checkbox"] {
+  appearance: none;
+  border: none;
+  outline: none;
+}
+
 input:checked + .slider {
   background-image: $toggle-gradient;
 
@@ -152,6 +158,7 @@ input:checked + .slider {
   border-radius: 0.3rem;
   background-color: $card-bg;
   cursor: pointer;
+  transition: all 0.2s ease-out;
 
   &:hover {
     background-color: $hover;
@@ -244,6 +251,7 @@ input:checked + .slider {
   border-radius: 0.3rem;
   padding: 2rem;
   cursor: pointer;
+  transition: all 0.2s ease-out;
 
   &:hover {
     background-color: $hover;
@@ -308,18 +316,22 @@ input:checked + .slider {
 
 .dt-tile {
   background-color: $dt-card-bg;
+  transition: all 0.2s ease-in;
 }
 
 .dt-text {
   color: $dt-text;
+  transition: all 0.2s ease-in;
 }
 
 .dt-count {
   color: $dt-numbers;
+  transition: all 0.2s ease-in;
 }
 
 .dt-numbers {
   color: $dt-numbers;
+  transition: all 0.2s ease-in;
 }
 
 .dt-hover:hover {

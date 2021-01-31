@@ -135,6 +135,14 @@ hr {
   border-radius: 50%;
 }
 
+input[type="checkbox"] {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: none;
+  outline: none;
+}
+
 input:checked + .slider {
   background-image: -webkit-gradient(linear, left top, right top, from(#3eda82), to(#378fe6));
   background-image: linear-gradient(to right, #3eda82, #378fe6);
@@ -171,6 +179,8 @@ input:checked + .slider::before {
   border-radius: 0.3rem;
   background-color: #f0f2fa;
   cursor: pointer;
+  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
 }
 
 .big-tile:hover {
@@ -294,6 +304,8 @@ input:checked + .slider::before {
   border-radius: 0.3rem;
   padding: 2rem;
   cursor: pointer;
+  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
 }
 
 .small-tile:hover {
@@ -383,18 +395,26 @@ input:checked + .slider::before {
 
 .dt-tile {
   background-color: #252a41;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
 }
 
 .dt-text {
   color: #8b97c6;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
 }
 
 .dt-count {
   color: white;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
 }
 
 .dt-numbers {
   color: white;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
 }
 
 .dt-hover:hover {
